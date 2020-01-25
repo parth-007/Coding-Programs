@@ -1,0 +1,42 @@
+Question. A program to add 1 to a number which is presented using array.
+
+import java.util.*;
+import java.io.*;
+public class Pass{
+    public static void main(String[] args)
+    {
+        int carry,value;
+        int[] arr = new int[4];
+        arr[0]=9;
+        arr[1]=9;
+        arr[2]=9;
+        arr[3]=9;
+        
+        ArrayList<Integer> a1 = new ArrayList<Integer>(); //done using arraylist
+        for(int i=0;i<arr.length;i++)
+            a1.add(arr[i]);
+        
+        int Size = a1.size();
+        
+        a1.set(Size-1, a1.get(Size-1)+1);
+        carry = a1.get(Size-1) / 10;
+        a1.set(Size-1, a1.get(Size-1)%10);
+        
+        for(int i=Size-2;i>=0;i--)
+        {
+            if(carry==1)
+            {
+        a1.set(i, a1.get(i)+1);
+        carry = a1.get(i) / 10;
+        a1.set(i, a1.get(i)%10);
+            }
+        }
+        
+        if(carry==1)
+            a1.add(0,1);
+    
+        for(int i=0;i<a1.size();i++){
+            System.out.print(a1.get(i));
+        }
+    }
+}
